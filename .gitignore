@@ -5,6 +5,9 @@ package-lock.json
 pnpm-lock.yaml
 yarn.lock
 
+# Compilation output files.
+extension/
+
 # Platform specified files.
 .DS_Store
 
