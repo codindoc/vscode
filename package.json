@@ -2,5 +2,8 @@
   "name": "code-in-doc",
   "displayName": "Code in Document",
   "description": "Better support for code inside documents.",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "engines": {
+    "vscode": "^1.90.0"
+  }
 }
