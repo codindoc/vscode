@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch for Node",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}/extension",
+        "--folder-uri=${workspaceRoot}/examples"
+      ],
+      "preLaunchTask": "compile",
+      "request": "launch",
+      "type": "extensionHost"
+    }
+  ]
+}
