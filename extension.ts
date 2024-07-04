@@ -18,6 +18,11 @@ export function activate(_context: ExtensionContext) {
   const serverOpts: ServerOptions = {command: "", transport: TransportKind.ipc}
   const clientOpts: LanguageClientOptions = {
     documentSelector: [{scheme: "file", language: "markdown"}],
+    middleware: {
+      async provideCompletionItem(document, position, context, token, next) {
+        return next(document, position, context, token)
+      },
+    },
   }
 
   client = new LanguageClient("code-in-doc", serverOpts, clientOpts)
