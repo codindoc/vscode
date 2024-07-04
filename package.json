@@ -13,6 +13,8 @@
     "url": "https://github.com/codindoc/vscode.git"
   },
   "scripts": {
+    "format": "prettier --write .",
+    "check": "prettier --check .",
     "compile": "node precompile && rollup --config rollup.config.js",
     "build": "npm run compile && cd extension && vsce package && cd .."
   },
@@ -22,6 +24,7 @@
     "@types/node": "^20.14.9",
     "@types/vscode": "^1.91.0",
     "@vscode/vsce": "^2.29.0",
+    "prettier": "^3.3.2",
     "rollup": "^4.18.0",
     "tslib": "^2.6.3"
   }
