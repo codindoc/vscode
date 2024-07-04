@@ -1,8 +1,22 @@
-const languageFileExtensions = {
+const langExts = {
   typescript: "ts",
   javascript: "js",
   markdown: "md",
   dart: "dart",
+}
+
+export function resolveLanguageID(ext: string): string {
+  for (const languageID of Object.keys(langExts)) {
+    // @ts-ignore
+    if (langExts[languageID] === ext) return languageID
+  }
+  return "plaintext"
+}
+
+export function resolveExt(languageID: string) {
+  // @ts-ignore
+  if (languageID in langExts) return langExts[languageID]
+  return "txt"
 }
 
 export class DocumentCodeBlock {
@@ -24,6 +38,10 @@ export class DocumentCodeBlock {
       raw.slice(this.start, this.end) +
       raw.slice(this.end).replace(regexp, " ")
     )
+  }
+
+  of(raw: string) {
+    return raw.slice(this.start, this.end)
   }
 }
 
@@ -56,14 +74,6 @@ function parseMarkdown(content: string, eol: string): DocumentCodeBlock[] {
   return handler
 }
 
-function resolveLanguageID(raw: string): string {
-  for (const languageID of Object.keys(languageFileExtensions)) {
-    // @ts-ignore
-    if (languageFileExtensions[languageID] === raw) return languageID
-  }
-  return "plaintext"
-}
-
 if (import.meta.vitest) {
   const {test, expect} = import.meta.vitest
   test("parse markdown and render", function () {
@@ -77,7 +87,7 @@ if (import.meta.vitest) {
     expect(block.languageID).toBe("typescript")
     expect(block.start).toBe(prefix.length)
     expect(block.end).toBe(raw.length - suffix.length)
-    expect(raw.slice(block.start, block.end)).toBe(code)
+    expect(block.of(raw)).toBe(code)
 
     expect(block.render(raw, "\n\r")).toBe(
       `${" ".repeat("# title".length)}\n\r` +
