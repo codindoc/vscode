@@ -82,6 +82,9 @@ function getEol(raw: EndOfLine): string {
 }
 
 export function activate(_context: ExtensionContext) {
+  console.log("code-in-doc extension launched")
+  console.info("info")
+  console.warn("warn")
   workspace.registerTextDocumentContentProvider("code-in-doc", vDocProvider)
   client = new LanguageClient("code-in-doc", serverOpts, clientOpts)
   client?.start()

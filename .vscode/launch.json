@@ -7,7 +7,7 @@
         "--extensionDevelopmentPath=${workspaceFolder}/extension",
         "--folder-uri=${workspaceRoot}/example"
       ],
-      "preLaunchTask": "compile",
+      "preLaunchTask": "prelaunch",
       "request": "launch",
       "type": "extensionHost"
     }
