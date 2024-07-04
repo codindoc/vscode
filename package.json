@@ -18,6 +18,9 @@
     "compile": "node precompile && rollup --config rollup.config.js",
     "build": "npm run compile && cd extension && vsce package && cd .."
   },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
