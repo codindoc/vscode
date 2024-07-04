@@ -5,7 +5,8 @@
     "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
-    "strictFunctionTypes": true
+    "strictFunctionTypes": true,
+    "types": ["vitest/importMeta"]
   },
   "include": ["*.ts"]
 }
