@@ -1,3 +1,4 @@
 semi: false
 bracketSpacing: false # Save line width.
 trailingComma: all # Avoid unnecessary line change.
+plugins: [prettier-plugin-sh] # Format shell scripts.
